@@ -1,0 +1,37 @@
+﻿Build started 6/9/2013 10:07:21 PM.
+     1>Project "C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\opengl\opengl.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\opengl.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\tools.h(16): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\tools.h(23): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(38): warning C4007: 'WinMain' : must be '__stdcall'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(58): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(63): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(68): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(73): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(78): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\ben\documents\visual studio 2012\projects\opengl\opengl\main.cpp(83): warning C4305: '-=' : truncation from 'double' to 'float'
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\Debug\opengl.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\Debug\opengl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\Debug\opengl.lib" /MACHINE:X86 Debug\opengl.res
+         Debug\camerascenenode.obj
+         Debug\eventmanager.obj
+         Debug\imageloader.obj
+         Debug\lightscenenode.obj
+         Debug\main.obj
+         Debug\mesh.obj
+         Debug\meshloader.obj
+         Debug\meshscenenode.obj
+         Debug\opengl.obj
+         Debug\scenegraph.obj
+         Debug\scenemanager.obj
+         Debug\scenenode.obj
+         Debug\stdafx.obj
+         Debug\texture.obj
+     1>camerascenenode.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+         opengl.vcxproj -> C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\Debug\opengl.exe
+     1>Done Building Project "C:\Users\Ben\Documents\Visual Studio 2012\Projects\opengl\opengl\opengl.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.28
