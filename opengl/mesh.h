@@ -57,6 +57,8 @@ private:
 	std::vector<vector3d> normals;
 	std::vector<vector2d> uv_map;
 	std::vector<color> colors;
+
+	bool lighting;
 };
 
 #endif

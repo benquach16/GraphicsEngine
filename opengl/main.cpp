@@ -15,7 +15,7 @@ GLRender *createGraphicsEngine()
 
 //when releasing as a lib, probably should delete this
 //mostly a test harness function
-int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int main()
 {
 
 	GLRender *render = createGraphicsEngine();
