@@ -3,12 +3,16 @@
 #include "scenemanager.h"
 
 //default constructor
-CSceneNode::CSceneNode(CSceneManager *manager,
+CSceneNode::CSceneNode(
+		CSceneManager *manager,
 		const vector3d &position,
 		const vector3d &rotation,
 		const vector3d &scale,
 		CSceneNode *parent) : 
-position(position), rotation(rotation), scale(scale), parent(parent),
+	position(position), 
+	rotation(rotation), 
+	scale(scale), 
+	parent(parent),
 	manager(manager)
 {
 	transform.setPosition(position);

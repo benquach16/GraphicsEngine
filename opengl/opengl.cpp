@@ -1,26 +1,6 @@
-//////////////////////////////////////////////////////////////////////
-///Copyright (C) 2012 Benjamin Quach
-//
-//This file is part of bengine
-//
-//This program is free software: you can redistribute it and/or modify
-//it under the terms of the GNU General Public License as published by
-//the Free Software Foundation, either version 3 of the License, or
-//(at your option) any later version.
-//
-//This program is distributed in the hope that it will be useful,
-//but WITHOUT ANY WARRANTY; without even the implied warranty of
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//GNU General Public License for more details.
-//
-//You should have received a copy of the GNU General Public License
-//along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-///////////////////////////////////////////////////////////////////////
-
 #include "stdafx.h"
 #include "opengl.h"
-
+#pragma hdrstop
 
 //WIN32 STUFF GOES HERE
 bool win_windows_closed;
@@ -71,7 +51,8 @@ enum WIN_KEYS
 	KEY_Z = 0x5A
 };
 
-GLRender::GLRender() : window_closed(false), hWnd(0), hDC(0), hRC(0)
+GLRender::GLRender() : 
+	window_closed(false), hWnd(0), hDC(0), hRC(0)
 {
 #if _WIN32
 	for(unsigned i = 0; i <256; i++)
@@ -117,12 +98,10 @@ void GLRender::init()
 	scenemanager = new CSceneManager();
 	eventmanager = new CEventManager();
 
-	glMatrixMode(GL_PROJECTION);
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_DEPTH_TEST);
 	glClearDepth(1);
 	glEnable(GL_LIGHTING);
-	glMatrixMode(GL_MODELVIEW);
 
 	glShadeModel (GL_SMOOTH);
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -146,10 +125,13 @@ void GLRender::init()
 	float height = window_size.Y;
 	glViewport(0,0,(GLsizei)width,(GLsizei)height);
 	window_size = vector2d(width,height);
-	glMatrixMode(GL_PROJECTION);
+
 	float aspect = width / height;
-	glOrtho(-aspect,aspect,-1,1,-1,1);
-	//glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
+	//glOrtho(-aspect,aspect,-1,1,-1,1);
+	//glFrustum(-1.0, 1.0, -1.0, 1.0, 0.001, 2000.0);
+
+	glMatrixMode(GL_PROJECTION);
+	gluPerspective(90, aspect, 0.0001,2000);
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -198,21 +180,18 @@ void GLRender::drawScene()
 #endif
 
 	beginDrawScene();
-	glLoadIdentity();
-
 	//multiply everything by the inverse of the camera matrix
-	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 	glLoadIdentity();
-
 	
 	if(scenemanager->getActiveCamera())
 	{
 		//test code
 		//scenemanager->getActiveCamera()->render();
-		matrix4 m= scenemanager->getActiveCamera()->getProjectionMatrix();
-		m.inverse();
-		glLoadMatrixf(m.m);
+		//matrix4 m= scenemanager->getActiveCamera()->getProjectionMatrix();
+		//m.inverse();
+		//glLoadMatrixf(m.m);
+		scenemanager->getActiveCamera()->render();
 	}
 	scenemanager->render();
 	glPopMatrix();
@@ -228,12 +207,12 @@ void GLRender::beginDrawScene()
 {
 	glClearColor( 0.2f, 0.2f, 0.5f, 0.0f );
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	glPushMatrix();
+
 }
 
 void GLRender::endDrawScene()
 {
-	glPopMatrix();
+	glFlush();
 	swapBuffers();
 }
 
@@ -308,6 +287,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			{
 				keys[E_KEY_TYPES::E_KEY_E] = true;
 			}
+			if(wParam == WIN_KEYS::KEY_R)
+			{
+				keys[E_KEY_TYPES::E_KEY_R] = true;
+			}
 			if(wParam == WIN_KEYS::KEY_Z)
 			{
 				keys[E_KEY_TYPES::E_KEY_Z] = true;
@@ -335,6 +318,18 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			if(wParam == WIN_KEYS::KEY_C)
 			{
 				keys[E_KEY_TYPES::E_KEY_C] = false;
+			}
+			if(wParam == WIN_KEYS::KEY_R)
+			{
+				keys[E_KEY_TYPES::E_KEY_R] = false;
+			}
+			if(wParam == WIN_KEYS::KEY_A)
+			{
+				keys[E_KEY_TYPES::E_KEY_A] = false;
+			}
+			if(wParam == WIN_KEYS::KEY_Z)
+			{
+				keys[E_KEY_TYPES::E_KEY_Z] = false;
 			}
 			if(wParam == WIN_KEYS::KEY_LEFT)
 			{
@@ -425,9 +420,7 @@ bool GLRender::createOpenGlWindow(const char *title, int width, int height, int 
 	return true;
 
 #else if __unix__
-	//COMPILE WITH G++ CAUSE GLUT
-	glutInit();
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+	//x11 functions go here
 #endif
 
 

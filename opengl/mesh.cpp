@@ -80,19 +80,19 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 {
 	//make sure to set everything in the matrix to be multiplied by view transformation
 
-	glMatrixMode(GL_MODELVIEW);
+
 	//rotate around the camera position and rotation first?
 
 
-	glPushMatrix();
 
 	//need to transform by rotation scale and position
 	quaternion rot = rotation.convertToQuaternion();
 
 	//hopefully we can just do one matrix multiplication
-	glTranslatef(position.X, position.Y, position.Z);
-	glRotatef(rot.W,rot.X,rot.Y,rot.Z);
 	glScalef(scale.X,scale.Y,scale.Z);
+	glRotatef(rot.W,rot.X,rot.Y,rot.Z);
+	glTranslatef(position.X, position.Y, position.Z);
+
 
 
 	glBegin(GL_TRIANGLES);
@@ -109,5 +109,4 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 			vertices[i].Z);
 	}
 	glEnd();
-	glPopMatrix();
 }
