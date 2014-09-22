@@ -23,13 +23,13 @@ int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int n
 	render->init();
 	
 	CMeshSceneNode *mesh = render->getSceneManager()->createBoxSceneNode(1, vector3d(0,0,0), vector3d(0,0,0));
-	CCameraSceneNode *cam = render->getSceneManager()->createCameraSceneNode(vector3d(0,0,-1));
+	CCameraSceneNode *cam = render->getSceneManager()->createCameraSceneNode(vector3d(0,0,0));
 	while(!render->getWindowClosed())
 	{
 		vector3d rot = cam->getRotation();
 		if(render->getEventManager()->getKeyState(E_KEY_TYPES::E_KEY_C))
 		{
-			rot.Y += 0.1;
+			rot.X -= 0.1;
 			cam->setRotation(rot);
 		}
 

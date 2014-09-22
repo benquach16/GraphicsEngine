@@ -167,7 +167,8 @@ void GLRender::purge()
 
 void GLRender::drop()
 {
-
+	//icky
+	//but if the user never used new probably shouldnt force user to delete
 	delete this;
 }
 
