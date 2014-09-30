@@ -1,23 +1,3 @@
-//////////////////////////////////////////////////////////////////////
-///Copyright (C) 2012 Benjamin Quach
-//
-//This file is part of bengine
-//
-//This program is free software: you can redistribute it and/or modify
-//it under the terms of the GNU General Public License as published by
-//the Free Software Foundation, either version 3 of the License, or
-//(at your option) any later version.
-//
-//This program is distributed in the hope that it will be useful,
-//but WITHOUT ANY WARRANTY; without even the implied warranty of
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//GNU General Public License for more details.
-//
-//You should have received a copy of the GNU General Public License
-//along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-///////////////////////////////////////////////////////////////////////
-
 #include "stdafx.h"
 #include "scenemanager.h"
 #include "scenenode.h"
@@ -69,5 +49,20 @@ CCameraSceneNode *CSceneManager::createCameraSceneNode(vector3d position, vector
 	else
 		root->addChild(node);
 
+	return node;
+}
+
+CLightSceneNode *CSceneManager::createLightSceneNode(float strength, float radius,
+													 vector3d position, vector3d rotation,
+													 const color newcolor,
+													 CSceneNode* parent)
+{
+	CLightSceneNode *node = new CLightSceneNode(
+		this, strength, radius,
+		position, rotation, newcolor, TYPE_OMNI, parent);
+	if(parent)
+		parent->addChild(node);
+	else
+		root->addChild(node);
 	return node;
 }

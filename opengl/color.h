@@ -29,6 +29,23 @@ public:
 		return *this;
 	}
 
+	float getClampedR() const
+	{
+		return R / MAX_RGB;
+	}
+	float getClampedG() const 
+	{
+		return G / MAX_RGB;
+	}
+	float getClampedB() const
+	{
+		return B / MAX_RGB;
+	}
+	float getClampedA() const
+	{
+		return A / MAX_RGB;
+	}
+
 
 	float R;
 	float G;

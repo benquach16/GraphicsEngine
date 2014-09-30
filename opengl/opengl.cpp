@@ -110,6 +110,7 @@ void GLRender::init()
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 	//temporary dlete later
+	/*
 	glEnable(GL_LIGHT0);
 	GLfloat lightpos[] = {1, 1, -3, 1};
 	GLfloat lightcol[] = {0.9, 0.9, 0.9, 0.1};
@@ -117,7 +118,7 @@ void GLRender::init()
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 	glLightfv(GL_LIGHT0, GL_AMBIENT, amb);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightcol);
-
+	*/
 
 	//initialize a window
 	//then create an opengl renderer
