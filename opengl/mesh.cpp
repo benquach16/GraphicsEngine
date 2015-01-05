@@ -14,7 +14,7 @@ CMesh::CMesh(E_MESH_PREFABS prefab, float size)
 		//construct a cube
 		//vertex by vertex
 		//first triangle
-		
+	   
 		vertices.push_back(vector3d(-0.5,-0.5,0.5) * size);
 		vertices.push_back(vector3d(0.5,-0.5,0.5) * size);
 		vertices.push_back(vector3d(-0.5,0.5,0.5) * size);
@@ -117,6 +117,11 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 		glVertex3f(vertices[i].X,
 			vertices[i].Y,
 			vertices[i].Z);
+	}
+
+	for(unsigned i = 0; i < faces.size(); i++)
+	{
+		
 	}
 	glEnd();
 }

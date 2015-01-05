@@ -30,6 +30,8 @@
 #include "color.h"
 #include "vector"
 #include "quaternion.h"
+#include "face.h"
+
 
 using namespace std;
 
@@ -45,7 +47,7 @@ public:
 	//default constructor
 	CMesh();
 	//pointer to an array
-	CMesh(vector3d *vertices);
+	CMesh(const vector<Face> &f);
 	//for creating boxes manually
 	CMesh(E_MESH_PREFABS prefab, float size);
 	CMesh(std::vector<float> vertices);
@@ -54,8 +56,7 @@ public:
 
 private:
 	std::vector<vector3d> vertices;
-	std::vector<vector3d> normals;
-	std::vector<vector2d> uv_map;
+	std::vector<Face> faces;
 	std::vector<color> colors;
 
 	bool lighting;
