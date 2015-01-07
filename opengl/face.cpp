@@ -6,11 +6,11 @@ Face::Face()
 }
 
 
-Face::Face(const vector3d &v1, const vector3d &v2, const vector3d &v3)
+Face::Face(int v1, int v2, int v3)
 {
-	vertices.push_back(v1);
-	vertices.push_back(v2);
-	vertices.push_back(v3);
+	vertexIndices.push_back(v1);
+	vertexIndices.push_back(v2);
+	vertexIndices.push_back(v3);
 }
 
 Face::~Face()

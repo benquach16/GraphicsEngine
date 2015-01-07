@@ -4,7 +4,7 @@
 
 CMeshSceneNode::CMeshSceneNode(
 	CMesh *mesh, CSceneManager *manager, vector3d position, vector3d rotation, vector3d scale, CSceneNode *parent) :
-CSceneNode(manager, position, rotation, scale, parent)
+	CSceneNode(manager, position, rotation, scale, parent), mesh(mesh)
 {
 }
 

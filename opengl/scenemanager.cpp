@@ -6,9 +6,13 @@
 #include "lightscenenode.h"
 
 
-CSceneManager::CSceneManager() : active_camera(0),
-	root(new CSceneNode(this, vector3d(0,0,0),vector3d(0,0,0),vector3d(0,0,0),0))
+CSceneManager::CSceneManager()
+	: active_camera(0),
+	  root(new CSceneNode(this, vector3d(0,0,0),vector3d(0,0,0),vector3d(0,0,0),0)),
+	  meshLoader(new CMeshLoader)
+								 
 {
+	
 }
 
 CSceneManager::~CSceneManager()
@@ -16,6 +20,7 @@ CSceneManager::~CSceneManager()
 	//delete everything
 	//should recursively delete from root
 	delete root;
+	delete meshLoader;
 }
 
 void CSceneManager::render()
@@ -34,6 +39,16 @@ CMeshSceneNode *CSceneManager::createBoxSceneNode(float size, vector3d position,
 	{
 		parent->addChild(node);
 	}
+	else
+		root->addChild(node);
+	return node;
+}
+
+CMeshSceneNode *CSceneManager::createMeshSceneNode(CMesh *mesh, vector3d position, vector3d rotation, vector3d scale, CSceneNode *parent)
+{
+	CMeshSceneNode *node = new CMeshSceneNode(mesh, this, position, rotation, scale, parent);
+	if(parent)
+		parent->addChild(node);
 	else
 		root->addChild(node);
 	return node;
@@ -66,3 +81,4 @@ CLightSceneNode *CSceneManager::createLightSceneNode(float strength, float radiu
 		root->addChild(node);
 	return node;
 }
+

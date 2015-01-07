@@ -47,10 +47,10 @@ public:
 	//default constructor
 	CMesh();
 	//pointer to an array
-	CMesh(const vector<Face> &f);
+	CMesh(const std::vector<vector3d> vertices, const std::vector<Face> faces);
 	//for creating boxes manually
 	CMesh(E_MESH_PREFABS prefab, float size);
-	CMesh(std::vector<float> vertices);
+	//CMesh(std::vector<float> vertices);
 	~CMesh();
 	void render(vector3d position, vector3d rotation, vector3d scale);
 

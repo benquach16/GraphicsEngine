@@ -1,16 +1,19 @@
 #ifndef __FACE_H__
 #define __FACE_H__
 
-#include <vector.h>
+#include <vector>
 #include "vector3d.h"
 
+
+//faces should probably share verts
+//so pass pointers
 class Face
 {
 public:
 	Face();
-	Face(const vector3d &v1, const vector3d &v2, const vector3d &v3);
+	Face(int v1, int v2, int v3);
 	~Face();
-	std::vector<vector3d> vertices;
+	std::vector<int> vertexIndices;
 };
 
 #endif

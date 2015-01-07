@@ -96,6 +96,9 @@
     <ClInclude Include="quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="face.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -138,6 +141,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="eventmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="face.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -10,6 +10,7 @@
 #include "iostream"
 #include "sstream"
 #include "vector3d.h"
+#include "face.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ public:
 	CMeshLoader();
 	~CMeshLoader();
 
-	CMesh *loadOBJ(const char *file);
+	CMesh *loadOBJ(const char *file) const;
 };
 
 #endif
