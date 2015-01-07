@@ -25,7 +25,7 @@ int main()
 	//CMeshSceneNode *mesh = render->getSceneManager()->createBoxSceneNode(1, vector3d(0,0,0), vector3d(0,0,0));
 	CCameraSceneNode *cam = render->getSceneManager()->createCameraSceneNode(vector3d(0,0,0));
 	CLightSceneNode *light = render->getSceneManager()->createLightSceneNode(200,200,vector3d(1,1,-3));
-	CMeshSceneNode *mesh = render->getSceneManager()->createMeshSceneNode(render->getSceneManager()->getMeshLoader()->loadOBJ("test.obj"));
+	CMeshSceneNode *mesh = render->getSceneManager()->createMeshSceneNode(render->getSceneManager()->getMeshLoader()->loadOBJ("teapot.obj"));
 	while(!render->getWindowClosed())
 	{
 		vector3d rot = cam->getRotation();

@@ -145,7 +145,7 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 
 	for(unsigned i = 0; i < faces.size(); i++)
 	{
-		std::cerr << i << " " << faces.size() << std::endl;
+		//std::cerr << i << " " << faces.size() << std::endl;
 		//assuming that our normals are right
 		//and assuming that we have 3 verts per face
 		glColor3f(1.0f, 1.0f, 1.0f);

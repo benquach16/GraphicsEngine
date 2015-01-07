@@ -103,11 +103,11 @@ void GLRender::init()
 	glClearDepth(1);
 	glEnable(GL_LIGHTING);
 
-	glShadeModel (GL_SMOOTH);
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 50.0 };
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	//glShadeModel (GL_SMOOTH);
+	//GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	//GLfloat mat_shininess[] = { 50.0 };
+	//glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	//glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 	//temporary dlete later
 	/*
@@ -132,7 +132,7 @@ void GLRender::init()
 	//glFrustum(-1.0, 1.0, -1.0, 1.0, 0.001, 2000.0);
 
 	glMatrixMode(GL_PROJECTION);
-	gluPerspective(90, aspect, 0.0001,2000);
+	gluPerspective(90, aspect, 1,2000);
 	glMatrixMode(GL_MODELVIEW);
 }
 

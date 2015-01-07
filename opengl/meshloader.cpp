@@ -19,7 +19,7 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 
 	vector<vector3d> vertex_indices;
 	vector<vector3d> vertex_normals;
-	vector<vector3d> vertex_texture;
+	vector<vector2d> vertex_texture;
 	vector<Face> faces;
 
 	string line;
@@ -39,29 +39,75 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 		else if (line[0] == 'f' && line[1] == ' ')
 		{
 			//face definition
-			int v1;
-			int v2;
-			int v3;
+			string v1;
+			string v2;
+			string v3;
+			int v1i;
+			int v2i;
+			int v3i;
 			istringstream s(line.substr(2));
-			s >> v1;
-			s >> v2;
-			s >> v3;
+			s >> v1i;
+			s >> v2i;
+			s >> v3i;
+			//find the /
+			/*
+			if (v1.find('/') != string::npos)
+			{
+				//has two /s
+				int pos1 = v1.find('/');
+				int pos2 = v1.find('/');
+				string vIndex = v1.substr(0, pos1);
+				string vtIndex = v1.substr(pos1, pos2);
+				string vnIndex = v1.substr(pos2);
+				v1i = std::stoi(vIndex);
+				int vt = std::stoi(vtIndex);
+				int vn = std::stoi(vnIndex);
+			}
+
+			if (v2.find('/') != string::npos)
+			{
+				//has two /s
+				int pos1 = v2.find('/');
+				int pos2 = v2.find('/');
+				string vIndex = v2.substr(0, pos1);
+				string vtIndex = v2.substr(pos1, pos2);
+				string vnIndex = v2.substr(pos2);
+				v2i = std::stoi(vIndex);
+				int vt = std::stoi(vtIndex);
+				int vn = std::stoi(vnIndex);
+			}
+			if (v3.find('/') != string::npos)
+			{
+
+				//has two /s
+				int pos1 = v3.find('/');
+				int pos2 = v3.find('/');
+				string vIndex = v3.substr(0, pos1);
+				string vtIndex = v3.substr(pos1, pos2);
+				string vnIndex = v3.substr(pos2);
+				v3i = std::stoi(vIndex);
+				int vt = std::stoi(vtIndex);
+				int vn = std::stoi(vnIndex);
+			}*/
 			//change to base 0
-			v1 -= 1;
-			v2 -= 1;
-			v3 -= 1;
-			faces.push_back(Face(v1,v2,v3));
+			v1i -= 1;
+			v2i -= 1;
+			v3i -= 1;
+			faces.push_back(Face(v1i,v2i,v3i));
 			std::cerr << v1 << " " << v2 << " " << v3 << std::endl;
 		}
 		else if(line.substr(0,2) == "vn")
 		{
 			//vertex normals
 			//important for smoothing
-			
+			vector3d v;
+			istringstream s(line.substr(0, 2));
+
 		}
 		else if(line.substr(0,2) == "vt")
 		{
 			//tex coords
+			
 		}
 		else if(line[0] == '#')
 		{
