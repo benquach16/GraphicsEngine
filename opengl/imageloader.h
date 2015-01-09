@@ -38,10 +38,10 @@ class CImageLoader
 public:
 	CImageLoader();
 	~CImageLoader();
-	CTexture *loadBMP(const char *file);
+	CTexture *loadBMP(const char *file) const;
 	//Not sure if actually should implement
 	//might do it for the lulz
-	CTexture *loadBEN(const char *file);
+	CTexture *loadBEN(const char *file) const;
 	CTexture *loadPNG(const char *file);
 	CTexture *loadTGA(const char *file);
 };

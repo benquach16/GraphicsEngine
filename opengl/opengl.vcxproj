@@ -105,6 +105,7 @@
     <ClInclude Include="tools.h" />
     <ClInclude Include="vector2d.h" />
     <ClInclude Include="vector3d.h" />
+    <ClInclude Include="vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camerascenenode.cpp" />
@@ -125,6 +126,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="opengl.rc" />

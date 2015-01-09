@@ -37,6 +37,7 @@ public:
 	virtual ~CCameraSceneNode();
 	//render function will update the viewing matrix
 	virtual void render();
+	void renderCamera();
 	matrix4 getProjectionMatrix() const;
 
 protected:

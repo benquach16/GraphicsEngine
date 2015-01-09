@@ -25,15 +25,17 @@ CTexture::CTexture(int x, int y, void *pixel_data) : x(x), y(y)
 {
 	glGenTextures(1, &image);
 	glBindTexture(GL_TEXTURE_2D, image);
-	
 	int mode = GL_RGB;
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, mode, GL_UNSIGNED_BYTE, pixel_data);
+
 
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, x, y, 0, mode, GL_UNSIGNED_BYTE, pixel_data);
+	
 	
 }
 

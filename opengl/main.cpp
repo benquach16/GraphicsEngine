@@ -22,10 +22,12 @@ int main()
 	render->createOpenGlWindow("TEST", 800,600,32,false);
 	render->init();
 	
-	//CMeshSceneNode *mesh = render->getSceneManager()->createBoxSceneNode(1, vector3d(0,0,0), vector3d(0,0,0));
+	CMeshSceneNode *mesh = render->getSceneManager()->createBoxSceneNode(1, vector3d(0,0,0), vector3d(0,0,0));
 	CCameraSceneNode *cam = render->getSceneManager()->createCameraSceneNode(vector3d(0,0,0));
-	CLightSceneNode *light = render->getSceneManager()->createLightSceneNode(200,200,vector3d(1,1,-3));
-	CMeshSceneNode *mesh = render->getSceneManager()->createMeshSceneNode(render->getSceneManager()->getMeshLoader()->loadOBJ("teapot.obj"));
+	CLightSceneNode *light = render->getSceneManager()->createLightSceneNode(200,200,vector3d(1,0,-2));
+	CMeshSceneNode *mesh2 = render->getSceneManager()->createMeshSceneNode(render->getMeshLoader()->loadOBJ("teapot.obj"), vector3d(0, 0, -4)); 
+	CTexture *t = render->getImageLoader()->loadBMP("test.bmp");
+	
 	while(!render->getWindowClosed())
 	{
 		vector3d rot = cam->getRotation();

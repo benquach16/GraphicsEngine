@@ -149,7 +149,7 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 		//assuming that our normals are right
 		//and assuming that we have 3 verts per face
 		glColor3f(1.0f, 1.0f, 1.0f);
-		glTexCoord2f(0.0f, 0.0f);
+		glTexCoord2f(0.5f, 0.5f);
 		Face &f = faces[i];
 		glVertex3f(vertices[f.vertexIndices[0]].X,
 			vertices[f.vertexIndices[0]].Y,

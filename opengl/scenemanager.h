@@ -9,6 +9,7 @@
 #include "vector3d.h"
 #include "mesh.h"
 #include "meshloader.h"
+#include "imageloader.h"
 
 class CSceneManager
 {
@@ -64,10 +65,7 @@ public:
 		CSceneNode* parent = 0);
 
 	//accessor function
-	const CMeshLoader *getMeshLoader() const
-	{
-		return meshLoader;
-	}
+
 	const CSceneNode *getRootSceneNode() const
 	{
 		return root;
@@ -84,7 +82,7 @@ private:
 
 	//There can be only one active camera
 	CCameraSceneNode *active_camera;
-	CMeshLoader *meshLoader;
+
 
 };
 

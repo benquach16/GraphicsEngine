@@ -46,11 +46,11 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 			int v2i;
 			int v3i;
 			istringstream s(line.substr(2));
-			s >> v1i;
-			s >> v2i;
-			s >> v3i;
+			s >> v1;
+			s >> v2;
+			s >> v3;
 			//find the /
-			/*
+			//std::cerr << v1 << std::endl;
 			if (v1.find('/') != string::npos)
 			{
 				//has two /s
@@ -63,7 +63,8 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 				int vt = std::stoi(vtIndex);
 				int vn = std::stoi(vnIndex);
 			}
-
+			else
+				v1i = std::stoi(v1);
 			if (v2.find('/') != string::npos)
 			{
 				//has two /s
@@ -76,6 +77,8 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 				int vt = std::stoi(vtIndex);
 				int vn = std::stoi(vnIndex);
 			}
+			else
+				v2i = std::stoi(v2);
 			if (v3.find('/') != string::npos)
 			{
 
@@ -88,7 +91,9 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 				v3i = std::stoi(vIndex);
 				int vt = std::stoi(vtIndex);
 				int vn = std::stoi(vnIndex);
-			}*/
+			}
+			else
+				v3i = std::stoi(v3);
 			//change to base 0
 			v1i -= 1;
 			v2i -= 1;
@@ -107,7 +112,7 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 		else if(line.substr(0,2) == "vt")
 		{
 			//tex coords
-			
+			vector3d v;
 		}
 		else if(line[0] == '#')
 		{

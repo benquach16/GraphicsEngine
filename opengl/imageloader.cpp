@@ -31,7 +31,7 @@ CImageLoader::~CImageLoader()
 
 //loading a bitmap manually
 //works
-CTexture *CImageLoader::loadBMP(const char *file)
+CTexture *CImageLoader::loadBMP(const char *file) const
 {
 
 	unsigned short planes;	// number of planes in image (must be 1) 
@@ -67,7 +67,7 @@ CTexture *CImageLoader::loadBMP(const char *file)
 		data[i] = data[i+2];
 		data[i+2] = tmp;
 
-		cout << "RGB(" << data[i] << ", " << data[i + 1] << ", " << data[i + 2] << ")" << endl;
+		//cout << "RGB(" <<(int)data[i] << ", " << (int)data[i + 1] << ", " << (int)data[i + 2] << ")" << endl;
 	}
 
 	CTexture *tex = new CTexture(width, height, data);

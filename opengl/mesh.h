@@ -31,6 +31,7 @@
 #include "vector"
 #include "quaternion.h"
 #include "face.h"
+#include "texture.h"
 
 
 using namespace std;
@@ -60,6 +61,7 @@ private:
 	std::vector<color> colors;
 
 	bool lighting;
+	CTexture *texture;
 };
 
 #endif

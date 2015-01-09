@@ -94,6 +94,7 @@ void GLRender::init()
 	hRC = ::wglCreateContext(hDC);
 	::wglMakeCurrent(hDC, hRC);
 
+	meshloader = new CMeshLoader();
 	imageloader = new CImageLoader();
 	scenemanager = new CSceneManager();
 	eventmanager = new CEventManager();
@@ -193,8 +194,9 @@ void GLRender::drawScene()
 		//matrix4 m= scenemanager->getActiveCamera()->getProjectionMatrix();
 		//m.inverse();
 		//glLoadMatrixf(m.m);
-		scenemanager->getActiveCamera()->render();
+		scenemanager->getActiveCamera()->renderCamera();
 	}
+	//dont accidently render cam aagain
 	scenemanager->render();
 	glPopMatrix();
 	//delete later test func

@@ -8,8 +8,8 @@
 
 CSceneManager::CSceneManager()
 	: active_camera(0),
-	  root(new CSceneNode(this, vector3d(0,0,0),vector3d(0,0,0),vector3d(0,0,0),0)),
-	  meshLoader(new CMeshLoader)
+	  root(new CSceneNode(this, vector3d(0,0,0),vector3d(0,0,0),vector3d(0,0,0),0))
+
 								 
 {
 	
@@ -20,7 +20,7 @@ CSceneManager::~CSceneManager()
 	//delete everything
 	//should recursively delete from root
 	delete root;
-	delete meshLoader;
+
 }
 
 void CSceneManager::render()

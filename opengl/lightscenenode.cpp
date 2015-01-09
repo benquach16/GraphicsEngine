@@ -14,7 +14,7 @@ CLightSceneNode::CLightSceneNode(
 {
 	int currentLight = GL_LIGHT0 + lightCount;
 	glEnable(currentLight);
-	GLfloat gposition[] = {position.X, position.Y, position.Z, 0};
+	GLfloat gposition[] = {position.X, position.Y, position.Z, 1.0};
 	GLfloat mat_shininess[] = { 50.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat lightcol[] = {newcolor.getClampedR(), newcolor.getClampedG(), newcolor.getClampedB(), newcolor.getClampedA()};
