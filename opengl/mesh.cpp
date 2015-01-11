@@ -3,12 +3,12 @@
 #include <iostream>
 #pragma once
 
-CMesh::CMesh()
+CMesh::CMesh() : texture(0), lighting(true)
 {
 	
 }
 
-CMesh::CMesh(E_MESH_PREFABS prefab, float size)
+CMesh::CMesh(E_MESH_PREFABS prefab, float size) : texture(0), lighting(true)
 {
 	if(prefab == PREFAB_CUBE)
 	{
@@ -97,7 +97,7 @@ CMesh::CMesh(E_MESH_PREFABS prefab, float size)
 }
 
 CMesh::CMesh(const std::vector<vector3d> vertices, const std::vector<Face> faces)
-	: vertices(vertices), faces(faces)
+	: vertices(vertices), faces(faces),texture(0), lighting(true)
 {
 
 }
@@ -105,14 +105,12 @@ CMesh::CMesh(const std::vector<vector3d> vertices, const std::vector<Face> faces
 
 CMesh::~CMesh()
 {
+	
 }
 
 void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 {
-	//make sure to set everything in the matrix to be multiplied by view transformation
 
-
-	//rotate around the camera position and rotation first?
 
 
 	
@@ -140,9 +138,12 @@ void CMesh::render(vector3d position, vector3d rotation, vector3d scale)
 			vertices[i].Z);
 	}
 	*/
-	std::cerr << vertices.size() << std::endl;
-	std::cerr << faces.size() << std::endl;
-
+	//std::cerr << vertices.size() << std::endl;
+	//std::cerr << faces.size() << std::endl;
+	if(texture)
+	{
+		
+	}
 	for(unsigned i = 0; i < faces.size(); i++)
 	{
 		//std::cerr << i << " " << faces.size() << std::endl;
