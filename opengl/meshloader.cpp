@@ -107,12 +107,21 @@ CMesh *CMeshLoader::loadOBJ(const char *file) const
 			//important for smoothing
 			vector3d v;
 			istringstream s(line.substr(0, 2));
-
+			s >> v.X;
+			s >> v.Y;
+			s >> v.Z;
+			vertex_normals.push_back(v);
 		}
 		else if(line.substr(0,2) == "vt")
 		{
+
 			//tex coords
 			vector3d v;
+			istringstream s(line.substr(0, 2));
+			s >> v.X;
+			s >> v.Y;
+			s >> v.Z;
+			vertex_texture.push_back(v);
 		}
 		else if(line[0] == '#')
 		{
